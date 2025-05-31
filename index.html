@@ -70,7 +70,18 @@
                     break;
 
                 case "changeGrid":
-                    const answer = prompt("How many pixels would you like on each side?");
+                    let answer = prompt("How many pixels would you like on each side?");
+                    while(typeof answer != "string" ){
+                        answer = prompt("Please type a valid input");
+                    }
+                    
+                    let num = Number(answer);
+
+                    while(num < 0 || num > 100){
+                        answer = prompt("please type numbers in between 1-100");
+                        num = Number(answer);
+                    }
+                    
                     const size = 640 / answer;
                     pixel.forEach((each) =>{
                         each.remove();
@@ -89,7 +100,7 @@
                         });
                     });
                     break;
-            }
+                    }
         });
     </script>
 
