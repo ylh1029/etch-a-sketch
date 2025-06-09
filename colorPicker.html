@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing the Color Picker</title>
+
+    <style>
+        #circle{
+            margin-left: auto;
+            margin-right: auto;
+            margin-top:50px;
+            background-color: #F00;
+            height: 100px;
+            width:100px;
+            border-radius: 50%;
+        }
+
+        input{
+            margin: 0.4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="circle"></div>
+    <input type="color" id="colorPallete" name="colorPallete" value="#ff0000">
+    
+    <script>
+        let circle = document.getElementById("circle");
+        let color_input = document.getElementById("colorPallete");
+
+        color_input.addEventListener("change", () => {
+            circle.style.background = color_input.value;
+        })
+    </script>
+</body>
+</html>
