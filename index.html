@@ -15,10 +15,6 @@
             border: solid 1px #000;
         }
 
-        h1{
-            text-align: center;
-        }
-
         #buttons{
             display: flex;
             flex-direction: row;
@@ -27,20 +23,27 @@
 
         button{
             display: block;
-            margin: 15px;
+            margin: 1rem;
+            margin-top:0rem;
         } 
+
+        input{
+            margin: 1rem;
+            margin-top:0rem;
+        }
     </style>
 </head>
 <body>
-    <h1>Welcome to Our Etch-A-Sketch Page!!!</h1>
     <div id="buttons">
         <button id="reset">Reset</button>
         <button id="changeGrid">Change Grid</button>
+        <input type="color" id="colorPallete" name="colorPallete" value="#000000">
     </div>
 
     <div id="container"></div>
 
     <script>
+        let brush = '#000000';
         const container = document.querySelector("#container");
 
         for(let i = 0; i < 16*16; i++){
@@ -54,7 +57,7 @@
 
         pixel.forEach((each) =>{
             each.addEventListener("mouseenter", (event) =>{
-                event.target.style.background = "black";
+                event.target.style.background = `${brush}`;
             });
         });
 
@@ -96,12 +99,18 @@
                     pixel = document.querySelectorAll(".pixel");
                     pixel.forEach((each) =>{
                         each.addEventListener("mouseenter", (event) =>{
-                            event.target.style.background = "black";
+                            event.target.style.background = `${brush}`;
                         });
                     });
                     break;
                     }
         });
+
+        let color_input = document.getElementById("colorPallete");
+
+        color_input.addEventListener("change", () => {
+            brush = color_input.value;
+        })
     </script>
 
     
